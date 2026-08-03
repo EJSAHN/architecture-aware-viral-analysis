@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "viral-genome-analysis"
-version = "1.0.0"
+version = "1.2.0"
 description = "Alignment-free architecture-aware analysis of curated plant DNA virus panels, including geometric embedding, validation, mosaicity, component concordance, and configuration tension."
 readme = "README.md"
 requires-python = ">=3.10"
