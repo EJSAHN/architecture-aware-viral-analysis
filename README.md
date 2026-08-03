@@ -2,7 +2,7 @@
 
 Alignment-free architecture-aware analysis of curated plant DNA virus panels, including geometric embedding, validation, mosaicity, component concordance, and configuration tension.
 
-This repository provides the **second stage** of the workflow. It expects the standardized outputs produced by `architecture-aware-viral-curation` and generates analysis workbooks suitable for manuscript development and downstream figure building.
+This repository provides the **second stage** of the workflow. It expects the standardized outputs produced by `architecture-aware-viral-curation` and generates analysis workbooks suitable for downstream interpretation and figure building.
 
 ## What the package does
 
@@ -89,7 +89,7 @@ analysis_results/
 
 ## Validation philosophy
 
-The analysis layer is designed to make reviewer-facing claims difficult to dismiss on statistical grounds. It includes:
+The analysis layer includes multiple complementary validation procedures:
 
 - permutation-based multivariate group separation,
 - dispersion checks,
@@ -113,3 +113,17 @@ This repository covers **analysis only**. Raw GenBank downloads should first be 
 ## License
 
 MIT
+
+## Optional robustness analyses
+
+Optional sensitivity and alignment-based cross-check workflows are available without changing the primary analysis:
+
+- `robustness` — compares canonical k-mer sizes and sliding-window sizes;
+- `prepare-similarity-benchmark` — exports the monopartite alignment benchmark panel;
+- `score-similarity-benchmark` — calculates a SimPlot-style local group-similarity profile from an aligned FASTA.
+
+See `docs/robustness_and_similarity_benchmark.md` for complete commands and interpretation.
+
+## Completeness-aware isolate metrics
+
+Isolate-level component concordance excludes single-component records, for which concordance is undefined. The package reports both the original dominant-target discordance and a component-count-normalized score, and it marks whether each isolate contains its full expected component set. Primary cross-system tension summaries use full expected sets; isolates with at least two represented components are retained as a sensitivity analysis.
